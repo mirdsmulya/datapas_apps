@@ -11,7 +11,9 @@ bootstrap =Bootstrap(app)
 def home():
 	return render_template('logging.html')
 
-
+@app.route('/signup')
+def signup():
+	return render_template('signup.html')
 
 
 

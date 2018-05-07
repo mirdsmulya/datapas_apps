@@ -19,8 +19,8 @@ def signup():
 @app.route('/signUpreq',methods=['POST'])
 def signUpreq():
  
+    _username = request.form['inputUsername']
     _name = request.form['inputName']
-    _email = request.form['inputEmail']
     _password = request.form['inputPassword']	
 
 

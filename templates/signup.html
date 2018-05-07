@@ -3,6 +3,26 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+
+$(function() {
+    $('#btnRegist').click(function() {
+ 
+        $.ajax({
+            url: '/signUpreq',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
 <style>
 body, html {
   height: 100%;
@@ -15,7 +35,7 @@ body, html {
 
 .bgimg1 {
   background-image: url("https://img.newatlas.com/google-street-view-crabs-2.jpg?auto=format%2Ccompress&fit=max&h=670&q=60&w=1000&s=305f8cbe55a8051d6e2228cd5a1f3e2c");
- min-height: 1000px;
+  min-height: 1000px;
   opacity: 0.75;
   background-attachment: fixed;
   background-position: center;
@@ -205,30 +225,39 @@ span.psw {
 
       <div class="container">
         <h2> New Account Registration </h2>
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <label for="inputUsername"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="inputUsername" id="inputUsername" required>
 
-        <label for="name"><b>Name</b></label>
-        <input type="text" placeholder="Enter Your Name" name="name" required>
+        <label for="inputName"><b>Name</b></label>
+        <input type="text" placeholder="Enter Your Name" name="inputName" id="inputName" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="inputPassword"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="inputPassword" id='inputPassword' required>
 
-        <label for="r-psw"><b>Re-type Password</b></label>
-        <input type="password" placeholder="Re-type Password" name="r-psw" required>
+        <label for="inputRepassword"><b>Re-type Password</b></label>
+        <input type="password" placeholder="Re-type Password" name="inputRepassword" id='inputRepassword' required>
           
         <button type="submit">Register</button>
         
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href ="/" style="text-decoration: none; border-bottom: 1px;"><font color="white">Cancel</a></button>
+        <button id="btnRegist" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href ="/" style="text-decoration: none; border-bottom: 1px;"><font color="white">Cancel</a></button>
           
       </div>
     </form>
 
   </div>
+
+<footer >
+        <p>&copy; Mirdan 2018</p>
+</footer>
+  
+  
 </div>
+
+
+
 </body>
 
 
